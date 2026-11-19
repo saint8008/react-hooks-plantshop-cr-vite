@@ -19,14 +19,11 @@ function NewPlantForm({ onAddPlant }) {
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...formData,
-        price: parseFloat(formData.price), // send price as a number
-      }),
+      body: JSON.stringify(formData),
     })
       .then((r) => r.json())
       .then((newPlant) => {
-        onAddPlant(newPlant); // pass the saved plant (with its id) up to PlantPage
+        onAddPlant(newPlant);
         setFormData({ name: "", image: "", price: "" }); // clear the form
       })
       .catch((error) => console.error("Failed to add plant:", error));

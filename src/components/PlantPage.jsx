@@ -19,7 +19,7 @@ function PlantPage() {
 
   // Add a newly created plant to state so it renders immediately
   function handleAddPlant(newPlant) {
-    setPlants([...plants, newPlant]);
+    setPlants((currentPlants) => [...currentPlants, newPlant]);
   }
 
   // Derive the visible list from state. An empty query matches every
